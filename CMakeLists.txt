@@ -14,9 +14,9 @@ CMAKE_MINIMUM_REQUIRED(VERSION 3.5)
 #
 PROJECT(LibSerial LANGUAGES C CXX VERSION 1.0.0)
 
-option(LIBSERIAL_ENABLE_TESTING "Enables building unit tests" ON)
-option(LIBSERIAL_BUILD_EXAMPLES "Enables building example programs" ON)
-option(LIBSERIAL_PYTHON_ENABLE "Enables building the library with Python SIP bindings" ON)
+option(LIBSERIAL_ENABLE_TESTING "Enables building unit tests" OFF)
+option(LIBSERIAL_BUILD_EXAMPLES "Enables building example programs" OFF)
+option(LIBSERIAL_PYTHON_ENABLE "Enables building the library with Python SIP bindings" OFF)
 option(LIBSERIAL_BUILD_DOCS "Build the Doxygen docs" ON)
 
 #
@@ -26,10 +26,22 @@ OPTION(INSTALL_STATIC "Install static library." ON)
 OPTION(INSTALL_SHARED "Install shared object library." ON)
 
 #
-# LibSerial requies a C++ compiler that supports at least C++14 standard
+# LibSerial requies a C++ compiler that supports at least C++20 standard
 #
-SET(CMAKE_CXX_STANDARD 14)
+SET(CMAKE_CXX_STANDARD 20)
 SET(CMAKE_STANDARD_REQUIRES ON)
+
+if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+    set(GCC 1)
+elseif(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+    set(CLANG 1)
+endif()
+
+if (GCC OR CLANG)
+    set(CMAKE_CXX_FLAGS "-fmodules-ts")
+elseif(MSVC)
+    set(CMAKE_CXX_FLAGS "/experimental:module")
+endif()
 
 INCLUDE(ExternalProject)
 

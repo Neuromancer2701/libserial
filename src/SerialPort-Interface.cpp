@@ -1,5 +1,5 @@
 /******************************************************************************
- * @file SerialPort.h                                                         *
+ * @file SerialPort-Interface.cpp                                             *
  * @copyright (C) 2004-2018 LibSerial Development Team. All rights reserved.  *
  * crayzeewulf@gmail.com                                                      *
  *                                                                            *
@@ -31,17 +31,17 @@
  * POSSIBILITY OF SUCH DAMAGE.                                                *
  *****************************************************************************/
 
-#pragma once
-
+module;
 #include <libserial/SerialPortConstants.h>
-
 #include <ios>
 #include <memory>
+
+export module SerialPort;
 
 /**
  * @namespace Libserial
  */
-namespace LibSerial
+export namespace LibSerial
 {
     /**
      * @brief SerialPort allows an object oriented approach to serial port
