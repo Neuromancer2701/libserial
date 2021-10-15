@@ -95,7 +95,7 @@ ADD_DEFINITIONS(
   -Wchar-subscripts
   -Wdouble-promotion
   -Wextra
-  -Wfatal-errors
+  #-fatal-errors
   -Wformat
   -Wformat-security
   -Wlogical-op

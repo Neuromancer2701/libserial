@@ -33,16 +33,23 @@
 
 module;
 #include <libserial/SerialPortConstants.h>
-#include <ios>
-#include <memory>
+//#include <ios>
+//#include <memory>
+
 
 export module SerialPort;
 
 /**
  * @namespace Libserial
  */
+
 export namespace LibSerial
 {
+	void dummy(int test);
+}
+
+
+#if 0
     /**
      * @brief SerialPort allows an object oriented approach to serial port
      *        communication.  A serial port object can be created to
@@ -508,4 +515,7 @@ export namespace LibSerial
         } while((result == -1) and (errno == EINTR)) ;
         return result ;
     }
+
+
 } // namespace LibSerial
+#endif

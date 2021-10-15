@@ -31,20 +31,36 @@
  * POSSIBILITY OF SUCH DAMAGE.                                                *
  *****************************************************************************/
 
-import SerialPort;
+
+module;
 
 #include <chrono>
-#include <cstdlib>
-#include <cstring>
-#include <fcntl.h>
-#include <linux/serial.h>
-#include <sstream>
-#include <sys/ioctl.h>
-#include <type_traits>
-#include <unistd.h>
+//#include <cstdlib>
+//#include <cstring>
+//#include <fcntl.h>
+//#include <linux/serial.h>
+//#include <sstream>
+//#include <sys/ioctl.h>
+//#include <type_traits>
+//#include <unistd.h>
+
+module SerialPort;
+
+using namespace std::chrono_literals;
 
 namespace LibSerial
 {
+
+ void dummy(int){
+
+	 auto t = std::chrono::duration_cast<std::chrono::minutes>(1s).count();
+	 (void)t;
+	 
+ }
+}
+
+#if 0
+
     /**
      * @brief SerialPort::Implementation is the SerialPort implementation class.
      */
@@ -2719,4 +2735,7 @@ namespace LibSerial
             }
         }
     }
+
+
 } // namespace LibSerial
+#endif
