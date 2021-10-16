@@ -31,15 +31,17 @@
  * POSSIBILITY OF SUCH DAMAGE.                                                *
  *****************************************************************************/
 
-#pragma once
-
-#include <libserial/SerialPortConstants.h>
-#include <libserial/SerialStreamBuf.h>
-
+module;
 #include <istream>
 #include <memory>
+#include <libserial/SerialPortConstants.h>
 
-namespace LibSerial
+export module SerialStream;
+
+import SerialStreamBuf;
+
+
+export namespace LibSerial
 {
     /**
      * @brief SerialStream is a stream class for accessing serial ports on

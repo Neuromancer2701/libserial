@@ -8,9 +8,11 @@ lib_LTLIBRARIES = libserial.la
 
 libserial_la_SOURCES = \
 	SerialPort-Interface.cpp \
-	SerialPort.cpp 
-#	SerialStream.cpp \
-#	SerialStreamBuf.cpp
+    	SerialStream-Interface.cpp \
+    	SerialStreamBuf-Interface.cpp \
+    	SerialPort.cpp \
+    	SerialStream.cpp \
+    	SerialStreamBuf.cpp \
 
 libserialincludedir = @includedir@/libserial
 libserialinclude_HEADERS = \

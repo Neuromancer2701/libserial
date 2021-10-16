@@ -1,8 +1,10 @@
 set(LIBSERIAL_SOURCES
     SerialPort-Interface.cpp
-    SerialPort.cpp)
-#    SerialStream.cpp
-#    SerialStreamBuf.cpp)
+    SerialPort.cpp
+    SerialStreamBuf-Interface.cpp
+    SerialStream-Interface.cpp
+    SerialStream.cpp
+    SerialStreamBuf.cpp)
 
 add_library(libserial_static STATIC ${LIBSERIAL_SOURCES})
 

@@ -95,7 +95,7 @@ ADD_DEFINITIONS(
   -Wchar-subscripts
   -Wdouble-promotion
   -Wextra
-  #-fatal-errors
+  -Wfatal-errors
   -Wformat
   -Wformat-security
   -Wlogical-op
@@ -109,7 +109,6 @@ ADD_DEFINITIONS(
   -Wpointer-arith
   -Wunused-local-typedefs
   -Wwrite-strings
-
   -fstrict-aliasing
   -fno-check-new
   -fno-common

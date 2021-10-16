@@ -1,5 +1,5 @@
 /******************************************************************************
- * @file SerialStreamBuf.h                                                    *
+ * @file SerialStreamBuf-Interface.cpp                                        *
  * @copyright (C) 2004-2018 LibSerial Development Team. All rights reserved.  *
  * crayzeewulf@gmail.com                                                      *
  *                                                                            *
@@ -31,15 +31,18 @@
  * POSSIBILITY OF SUCH DAMAGE.                                                *
  *****************************************************************************/
 
-#pragma once
-
+module;
 #include <libserial/SerialPortConstants.h>
-
 #include <memory>
 #include <streambuf>
 #include <vector>
 
-namespace LibSerial
+export module SerialStreamBuf;
+
+/**
+ * @namespace Libserial
+ */
+export namespace LibSerial
 {
     /**
      * @brief SerialStreamBuf is the streambuf subclass used by SerialStream.
