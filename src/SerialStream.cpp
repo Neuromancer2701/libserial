@@ -65,6 +65,7 @@ namespace LibSerial
     SerialStream::~SerialStream() 
     try 
     {
+	mIOBuffer.reset();    
         // Close the serial stream if it is open.
         if (this->IsOpen())
         {

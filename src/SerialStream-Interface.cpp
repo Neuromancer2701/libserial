@@ -339,7 +339,7 @@ export namespace LibSerial
          * @brief The SerialStreamBuffer object that will be used by the
          *        stream to communicate with the serial port.
          */
-        std::unique_ptr<SerialStreamBuf> mIOBuffer {nullptr} ;
+       std::unique_ptr<SerialStreamBuf> mIOBuffer{nullptr};
 
     } ; // class SerialStream
 

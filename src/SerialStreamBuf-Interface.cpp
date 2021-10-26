@@ -90,7 +90,7 @@ export namespace LibSerial
          * @brief Default Destructor for a SerialStreamBuf object. Closes the
          *        serial port associated with mFileDescriptor if open.
          */
-        virtual ~SerialStreamBuf() ;
+        virtual ~SerialStreamBuf();
 
         /**
          * @brief Copy construction is disallowed.
@@ -421,7 +421,7 @@ export namespace LibSerial
         /**
          * @brief Pointer to Implementation class instance.
          */
-        std::unique_ptr<Implementation> mImpl;
+       std::unique_ptr<Implementation> mImpl;
 
     } ; // class SerialStreamBuf
 

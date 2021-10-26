@@ -38,13 +38,13 @@ module;
 #include <linux/serial.h>
 #include <sys/ioctl.h>
 #include <unistd.h>
+#include <memory>
 
 #include <libserial/SerialPortConstants.h>
 
 module SerialStreamBuf;
 
 import SerialPort;
-import SerialStream;
 
 namespace LibSerial
 {
@@ -62,7 +62,7 @@ namespace LibSerial
         /**
          * @brief Default Destructor.
          */
-        ~Implementation() ;
+        ~Implementation() ; 
 
         /**
          * @brief Constructor that allows a SerialStreamBuf instance to be
@@ -386,7 +386,7 @@ namespace LibSerial
     } ;
 
     SerialStreamBuf::SerialStreamBuf()
-        : mImpl(new Implementation)
+        : mImpl(std::make_unique<Implementation>())
     {
         setbuf(nullptr, 0) ;
     }
@@ -397,7 +397,7 @@ namespace LibSerial
                                      const FlowControl&   flowControlType,
                                      const Parity&        parityType,
                                      const StopBits&      stopBits)
-        : mImpl(new Implementation(fileName,
+        : mImpl(std::make_unique<Implementation>(fileName,
                                    baudRate,
                                    characterSize,
                                    flowControlType,
@@ -407,7 +407,11 @@ namespace LibSerial
         setbuf(nullptr, 0) ;
     }
 
-    SerialStreamBuf::~SerialStreamBuf() = default ;
+    SerialStreamBuf::~SerialStreamBuf() {
+	    
+  	delete mImpl.release();
+	    
+    }
 
     void
     SerialStreamBuf::Open(const std::string& fileName,
@@ -689,6 +693,7 @@ namespace LibSerial
     } 
     catch(...) 
     {
+
         //
         // :IMPORTANT: We do not let any exceptions escape the destructor.
         // (see https://isocpp.org/wiki/faq/exceptions#dtors-shouldnt-throw)
